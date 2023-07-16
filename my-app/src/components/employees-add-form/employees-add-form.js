@@ -19,12 +19,14 @@ class EmployeesAddForm extends Component{
 
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.onAdd(this.state.name, this.state.salary);
+        if(this.state.name !== '' && this.state.salary !== '') {
+            this.props.onAdd(this.state.name, this.state.salary);
 
-        this.setState({
-            name: '',
-            salary: ''
-        })
+            this.setState({
+                name: '',
+                salary: ''
+            })
+        }
     }
     
     render() {
